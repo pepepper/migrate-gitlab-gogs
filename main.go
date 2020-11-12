@@ -63,7 +63,7 @@ func main() {
 	CheckError(err9)
 
 	// Have user select a source project from gitlab
-	git := gitlab.NewClient(nil, config.GitlabAPIKey)
+	git,err := gitlab.NewClient(nil, config.GitlabAPIKey)
 	git.SetBaseURL(config.GitlabURL)
 	opt := &gitlab.ListProjectsOptions{}
 	gitlabProjects, _, err := git.Projects.ListProjects(opt)
