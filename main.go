@@ -268,7 +268,7 @@ func GetIssueLabel(git *gitlab.Client, gg *gogs.Client, gitPrj int, gogsPrj stri
 	}
 
 	if !found {
-		tags, _, err1 := git.Labels.ListLabels(gitPrj)
+		tags, _, err1 := git.Labels.ListLabels(gitPrj,nil)
 		CheckError(err1)
 		for i:= range tags {
 			if tags[i].Name == label {
