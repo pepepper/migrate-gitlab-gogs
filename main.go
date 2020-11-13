@@ -218,7 +218,7 @@ func DoMigration(dryrun bool, git *gitlab.Client, gg *gogs.Client, gitPrj int, g
 			} // else purposefully omitted
 
 			// Migrate all of the issue notes
-			notes, _, err2 := git.Notes.ListIssueNotes(gitPrj, issues[i].ID, &listNotes)
+			notes, _, err2 := git.Notes.ListIssueNotes(gitPrj, issues[i].IID, &listNotes)
 			CheckError(err2)
 			for j := range notes {
 				fmt.Println("Adding note", notes[j].ID)
